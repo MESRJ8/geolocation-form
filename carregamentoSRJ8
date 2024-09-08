@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRJ8 CARREGAMENTO ENVIOS EXTRA</title>
+</head>
+<body>
+
+<script>
+    // Função para exibir o pop-up ao carregar a página
+    window.onload = function() {
+        const message = document.createElement('div');
+        message.style.position = 'fixed';
+        message.style.top = '50%';
+        message.style.left = '50%';
+        message.style.transform = 'translate(-50%, -50%)';
+        message.style.padding = '20px';
+        message.style.backgroundColor = '#f9f934'; // Fundo pop up amarelo
+        message.style.border = '2px solid #000';
+        message.style.boxShadow = '0 0 15px rgba(0, 0, 0, 0.2)';
+        message.style.zIndex = '750';
+        message.style.textAlign = 'center';
+
+        const img = document.createElement('img');
+        img.src = 'https://www.ilhacomprida.sp.leg.br/imagens/geral/atencao.png/image_view_fullscreen';
+        img.alt = 'Atenção';
+        img.style.width = '100%';
+
+        const text = document.createElement('p');
+        text.innerText = 'Não é permitido entrada de veículos ou de motoristas em não conformidade com as regras de segurança, com símbolos políticos, time, torcidas organizadas ou similares.';
+        text.style.marginTop = '5px';
+        text.style.fontSize = '20px'; // Tamanho do Texto
+        text.style.color = '#054f77'; // Cor do Texto pop up
+        text.style.fontWeight = 'bold'; // Texto em negrito
+
+        message.appendChild(img);
+        message.appendChild(text);
+
+        const closeBtn = document.createElement('button');
+        closeBtn.innerText = 'Compreendi!';
+        closeBtn.style.marginTop = '10px';
+        closeBtn.style.padding = '10px 20px';
+        closeBtn.style.backgroundColor = '#054f77';
+        closeBtn.style.color = '#fff';
+        closeBtn.style.border = 'none';
+        closeBtn.style.cursor = 'pointer';
+        closeBtn.onclick = function() {
+            document.body.removeChild(message);
+        };
+
+        message.appendChild(closeBtn);
+        document.body.appendChild(message);
+    }
+
+    function refreshSpreadsheet() {
+        const iframe = document.getElementById('spreadsheet');
+        iframe.src = iframe.src;
+    }
+
+    setInterval(refreshSpreadsheet, 1200000); // Atualiza a planilha a cada 120 segundos
+
+    // Função para desativar o iframe do formulário após 60 segundos
+    function disableForm() {
+        const formIframe = document.getElementById('form-iframe');
+        formIframe.src = ""; // Limpa o conteúdo do iframe
+        alert("O tempo para preencher o formulário expirou.");
+    }
+
+    // Inicia o cronômetro de 60 segundos ao carregar a página
+    setTimeout(disableForm, 60000); // 60 segundos
+
+    // Função para rolar a página até o formulário
+    function scrollToForm() {
+        document.getElementById('form-container').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+<div class="header">
+    <h1>SRJ8 CARREGAMENTO ENVIOS EXTRA</h1>
+</div>
+
+<div class="banner">
+    <h2 style="width: 100%; text-align: center;">Informações</h2> <!-- Título adicionado -->
+    <div class="column">
+        <ul>
+            <li>Não é permitido entrada com veículo em não conformidade com as regras de segurança, roupas de time, torcidas organizadas, partidos políticos ou sem os itens de segurança (Bota com CA, Colete reflexivo e luvas).</li>
+            <li>Atenção para preencher corretamente seu ID do Motorista. Caso não saiba, verifique na planilha de carregamento ao lado ou verifique em seu cadastro no aplicativo Envios Extra.</li>
+        </ul>
+    </div>
+    <div class="column">
+        <ul>
+            <li>Não esqueça de clicar em "ENVIAR" para enviar seus dados.</li>
+            <li>Não é permitido ATRAVESSAR A ÁREA DE CARREGAMENTO, utilizar somente o caminho seguro demarcado no piso</li>
+            <li>As falhas de insucesso DEVEM RETORNAR NO MESMO DIA no turno da tarde de 14:30h às 21:30h.</li>
+            <li>Devolução no dia seguinte é de 6:30h às 7:30h ou de 14:30h às 21:30h</li>
+            <li>Suporte em rota Meli Extra de 7:00h às 22:00h. Clique no botão abaixo para enviar mensagem.</li>
+        </ul>
+        <a class="whatsapp-button" href="https://wa.me/5521987317281" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp-Suporte em Rota">
+            WhatsApp
+        </a>
+    </div>
+</div>
+
+    <!-- Botão para confirmar presença -->
+    <button onclick="scrollToForm()" class="confirm-presence-button">
+        Confirme sua presença aqui
+    </button>
+    
+    
+    
+    
+    
+    
+    
+
+<div class="container">
+    <div class="main-content">
+    <iframe id="spreadsheet" src="https://docs.google.com/spreadsheets/d/1gXXdZpEThSBXAwSxukyPEALII2DoNMnsJ7f6T42cZOo/preview?usp=sharing&headers=false" style="width: 100%; height: 4000px; border: 0;"></iframe>
+    </div>
+
+
+
+    <!-- Incorpora o Google Forms abaixo da planilha -->
+    <div id="form-container">
+        <h2>ENVIO DE CONFIRMAÇÃO DE PRESENÇA NO LOCAL DO CARREGAMENTO</h2>
+        <iframe id="form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfzXvMT1rsnACijBIRoYozXSIUTWM_0TfdfSu3qNbmLDLnJ5g/viewform?embedded=true" width="100%" height="1000px" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+    </div>
+</div>
+
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+<style>
+    body {
+        background-color: #ffffff; /* Cor do fundo do site */
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .header {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .header h1 {
+        font-family: 'Bangers', cursive;
+        font-size: 50px;
+        color: #054f77;
+        text-shadow: 2px 2px 4px #FFFF00;
+    }
+    .banner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: #054f77;
+        color: white;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .column {
+        flex: 1 1 50%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .column ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+    .column li {
+        margin-bottom: 10px;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        width: 100%;
+        align-items: center;
+    }
+    .main-content {
+        background-color: white;
+        padding: 20px;
+        box-sizing: border-box;
+        border: 1px solid #00008B;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+    }
+    iframe {
+        width: 100%;
+        border: 0;
+        flex-grow: 1;
+    }
+    .whatsapp-button {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        background-color: #25D366;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .whatsapp-button img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+    .confirm-presence-button {
+        background-color: yellow;
+        color: blue;
+        padding: 20px;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        margin: 20px auto;
+        display: block;
+        text-align: center;
+    }
+    #form-container {
+        margin-top: 50px;
+        width: 90%;
+        max-width: 1200px;
+        text-align: center;
+    }
+    #form-container h2 {
+        font-family: 'Arial', sans-serif;
+        font-size: 24px;
+        color: #054f77;
+    }
+</style>
+
+</body>
+</html>
